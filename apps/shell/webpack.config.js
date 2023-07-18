@@ -19,16 +19,16 @@ plugins.push(
       host: "host@http://localhost:3000/remoteEntry.js",
     },
     exposes: {
-      "./counter": "./src/stores/counter.ts",
+      "./Counter": "./src/stores/counter.ts",
     },
     shared: {
       react: {
         singleton: true,
-        requiredVersion: "^17.0.2",
+        requiredVersion: "^18.2.0",
       },
       "react-dom": {
         singleton: true,
-        requiredVersion: "^17.0.2",
+        requiredVersion: "^18.2.0",
       },
     },
   }),
@@ -48,6 +48,7 @@ module.exports = {
   devServer: {
     static: './dist',
     port: 3000,
+    historyApiFallback: true,
   },
   module: {
     rules: [
