@@ -14,21 +14,19 @@ plugins.push(
 
 plugins.push(
   new ModuleFederationPlugin({
+    filename: "remoteEntry.js",
     name: "host",
     remotes: {
       host: "host@http://localhost:3000/remoteEntry.js",
     },
-    exposes: {
-      "./Counter": "./src/stores/counter.ts",
-    },
     shared: {
       react: {
         singleton: true,
-        requiredVersion: "^18.2.0",
+        requiredVersion: "^17.0.2",
       },
       "react-dom": {
         singleton: true,
-        requiredVersion: "^18.2.0",
+        requiredVersion: "^17.0.2",
       },
     },
   }),
